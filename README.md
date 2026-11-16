@@ -14,6 +14,19 @@ This collaborative project investigates how a modular floating platform can resp
 
 The team reports that both systems operated in the physical prototype. The surviving files establish substantial elements of the control logic and Grasshopper communication workflow; **the exact source-code connection from distance readings to façade actuation has not been fully reconstructed from the archived files**. This repository documents both the demonstrated prototype and the limits of the surviving technical evidence.
 
+## New: Python software extension (2026)
+
+**[Explore the Responsive Systems Lab →](python-extension/README.md)** — a separate offline Python controller and interactive Streamlit dashboard inspired by the 2025 prototype, with [automated tests](python-extension/tests/test_control.py) and [example scenario data](python-extension/samples/scenario.csv). This demonstrates a **new software-learning direction**, not new evidence about the original physical hardware.
+
+```bash
+cd python-extension
+python -m simulator.run_demo
+python -m unittest discover -s tests -v
+# Interactive version: pip install -r requirements.txt && streamlit run app.py
+```
+
+The extension was prepared with **AI coding assistance**; project-owner review, personal modifications, and a local UI run should be completed before making independent implementation claims. See the [learning notes](docs/PYTHON_EXTENSION.md) and [admissions summary draft](docs/ADMISSIONS_SUMMARY.md).
+
 ## System at a glance
 
 ```mermaid
@@ -38,6 +51,7 @@ This is a **system-level diagram**, not a verified record of every final wire, p
 | [`grasshopper/extracted-scripts/`](grasshopper/extracted-scripts/) | Six *unchanged* Python scripts extracted from embedded GH components | For code review; these are not a standalone app |
 | [`media/`](media/) | Original project board and screenshots of the Grasshopper canvas | Captured outside a live serial session; panels show disconnected-state messages |
 | [`docs/`](docs/) | Architecture, code notes, provenance and reproduction limitations | Research/portfolio documentation |
+| [`python-extension/`](python-extension/) | New Python simulation, Streamlit interface and automated tests (2026) | Separate AI-assisted educational exercise; not connected to hardware |
 
 ## What the code demonstrates
 
@@ -65,7 +79,7 @@ The group used a **professor-provided Arduino/Grasshopper environment and starte
 
 **This repository is a historical project archive, not plug-and-play firmware.** Hardware wiring, a compatible Arduino board, Rhino/Grasshopper, the right serial-port settings and the relevant course framework may be required. The `.gh` file includes a machine-specific serial path that must be changed for another computer. See [reproduction and limitations](docs/REPRODUCIBILITY.md).
 
-Potential future extensions: sensor calibration; noise filtering and hysteresis; measured pressure/water-level feedback; serial-protocol tests; and a software-only simulation for automated regression testing. These are **future improvements, not completed features**.
+Potential future hardware extensions include sensor calibration, pressure/water-level feedback and serial-protocol tests. A **software-only simulation with example force deadband logic and automated tests has now been added separately** under [`python-extension/`](python-extension/); it does not validate or reproduce the final hardware implementation.
 
 ## Project context and credits
 
