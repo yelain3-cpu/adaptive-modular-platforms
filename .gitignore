@@ -1,0 +1,24 @@
+# macOS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Python cache / local envs
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Rhino/Grasshopper autosaves and local working state
+*.gh~
+*.ghbak
+*.3dmbak
+
+# Local-only original framework/reference files (not licensed for public upload)
+private-originals/
+reference-framework/
+Firefly_Firmata_Basic.ino
+airpump(1).ino
