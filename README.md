@@ -89,8 +89,8 @@ The 2026 extension was prepared with **AI coding assistance**. Personal code rev
 
 ## Contribution, mentorship and attribution
 
-- **Yang Yiru — team leader / project contributor:** architectural and system design, Arduino programming, project-specific parameter-control workflows, physical prototyping, and team coordination, as described by the project lead. Exact authorship of individual legacy components is not always recoverable.
-- **Zhou Yiheng — project teammate / co-developer:** credited as a group member on the official competition submission. The repository does not infer a detailed division of work that the provided material does not document.
+- **Yang Yiru — team leader / project contributor:** architectural and system design, Arduino programming, project-specific parameter-control workflows, physical prototyping, and team coordination, as described by the project lead. 
+- **Zhou Yiheng — project teammate / co-developer:** credited as a group member on the official competition submission. 
 - **Professor Kaicong Wu — instructor:** credited on the competition submission; provided course context and technical teaching resources.
 - **Existing framework / AI tools:** Arduino–Grasshopper integration used a professor-provided environment. Some serial-interface Python components in the archived Grasshopper definition are identified as generated with ChatGPT-4o. The Firefly Firmata template and its course-modified derivative are **not redistributed** here.
 
