@@ -3,7 +3,7 @@
 **A responsive-architecture prototype connecting human needs, sensors, software and physical actuation.**  
 **The University of Hong Kong · 2025 · Arduino · Rhino/Grasshopper · Python**
 
-**Recognition:** Merit Prize, 2025 Hong Kong University Student Innovation and Entrepreneurship Competition (reported in the team's project records).  
+**Recognition:** Merit Prize, 2025 Hong Kong University Student Innovation and Entrepreneurship Competition.
 **Competition submission:** 11th edition · Innovation A · Entry **EC-042**.  
 **Project team:** **Yang Yiru** (team leader) and **Zhou Yiheng**.  
 **Instructor:** **Professor Kaicong Wu**.
