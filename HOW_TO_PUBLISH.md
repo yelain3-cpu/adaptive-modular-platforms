@@ -1,25 +1,25 @@
-# First-time GitHub publishing — no terminal needed
+# Updating the existing private GitHub repository
 
-This is a prepared *folder*, not yet an online GitHub repository. Publishing needs a GitHub account and your authorization.
+Your original `adaptive-modular-platforms` repository has already been published privately. **Do not create a second repository.**
 
-## Recommended: GitHub Desktop
+## Recommended: use Codex with your existing repo
 
-1. Unzip the downloaded `adaptive-modular-platforms-github-ready.zip` archive into a normal folder on your computer.
-2. Install and sign in to [GitHub Desktop](https://desktop.github.com/).
-3. Choose **File → Add local repository → Choose** and select the unzipped `adaptive-modular-platforms-github-ready` folder. If it says this is not a Git repository, select **Create a repository here**.
-4. Use repository name **`adaptive-modular-platforms`**; keep the existing README and files. Do **not** initialize the repository with an extra README or license.
-5. Choose **Publish repository**. Start with **Keep this code private** checked until you review `docs/ATTRIBUTION.md`. Make it public only after the review.
-6. Open the repository online and confirm the README hero image, links and folders appear.
-7. Copy the repository URL and add it to the **Technical Projects** section of your CV (and application portfolio, where permitted).
+1. Open the existing local repository folder in Codex.
+2. Add the files from `adaptive-modular-platforms-stage3-update.zip` **into the corresponding folders**, replacing the README and documentation files where prompted.
+3. Review the Git diff: the change should involve Markdown documentation and three new JPEG images, **not** changes to the 2025 Arduino/Grasshopper or 2026 Python source code.
+4. Preview `README.md` with Markdown support and confirm that images and links work.
+5. Commit the changes to your existing branch and push to the **same private GitHub repository**.
+6. Check the README on GitHub. Make the repository public only when you choose to do so.
 
-If you use a coding assistant with access to local files and a connected GitHub account, it can also initialize and publish this folder for you. Do not share passwords or personal access tokens in chat. Grant access through the tool's normal authentication flow.
+## No terminal? GitHub website upload
 
-## Suggested final checks
+GitHub's **Add file → Upload files** interface can upload files, but updating nested folders and replacing existing files is more awkward than using Codex or GitHub Desktop. Using the already-cloned repository is preferred.
 
-- [ ] Your role and the teammate's role are represented accurately.
-- [ ] You have permission to publish the collaborative portfolio image and `.gh` file.
-- [ ] The third-party Firefly template and modified teaching framework are **not** inside the public-ready repo.
-- [ ] The project is described as a physical prototype, not an AI/ML system.
-- [ ] The repository is readable without opening a `.gh` file.
+## Checklist
 
-> **Note:** Never upload the private preservation archive to a public repository. It contains reference files with unclear redistribution rights.
+- [ ] Project credits correctly name **Yang Yiru**, **Zhou Yiheng** and **Professor Kaicong Wu**.
+- [ ] Competition entry details read **11th edition, Innovation A, EC-042**.
+- [ ] New images load: mechanism diagram, physical prototype and software-simulation screenshot.
+- [ ] Physical demonstration is distinguished from proposed future applications and the 2026 software simulator.
+- [ ] Firefly Firmata reference files remain excluded.
+- [ ] No duplicate repository was created and the existing repository privacy is unchanged.

@@ -1,5 +1,14 @@
 # Changelog
 
+## Stage 3 — November 2026
+
+- Identified and credited **Yang Yiru**, **Zhou Yiheng**, and instructor **Professor Kaicong Wu** using the team's competition submission.
+- Added competition specifics: **11th edition**, **Innovation A**, entry **EC-042**.
+- Strengthened the Tai O problem framing and distinguished prototype demonstrations from proposed future uses.
+- Added excerpted diagram, physical-prototype photos and a screenshot of the 2026 Python simulator to the README.
+- Updated attribution and admissions-summary language without changing the archived Arduino, Grasshopper or simulator source code.
+
+
 ## Stage 2 — November 2026
 
 - Added a separate, **AI-assisted** offline Python simulation exercise (`python-extension/`).

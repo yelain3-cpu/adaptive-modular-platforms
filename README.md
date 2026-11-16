@@ -1,88 +1,103 @@
 # Adaptive Modular Platforms for Climate-Resilient Urbanism
 
-**Responsive architecture · Physical computing · Arduino · Rhino/Grasshopper · Python**  
-**HKU BA(Architectural Studies) final-year project (2025) | Merit Prize, Hong Kong University Student Innovation and Entrepreneurship Competition 2025**
+**A responsive-architecture prototype connecting human needs, sensors, software and physical actuation.**  
+**The University of Hong Kong · 2025 · Arduino · Rhino/Grasshopper · Python**
 
-![Project overview with design diagrams and prototype demonstration photographs](media/project-board.jpg)
+**Recognition:** Merit Prize, 2025 Hong Kong University Student Innovation and Entrepreneurship Competition (reported in the team's project records).  
+**Competition submission:** 11th edition · Innovation A · Entry **EC-042**.  
+**Project team:** **Yang Yiru** (team leader) and **Zhou Yiheng**.  
+**Instructor:** **Professor Kaicong Wu**.
 
-## Overview
+![Overview of the modular platform and prototype demonstrations](media/project-board.jpg)
 
-This collaborative project investigates how a modular floating platform can respond to changes in human loads and water conditions. Two responsive subsystems were developed and demonstrated in a physical prototype:
+## The problem: climate resilience in Tai O
 
-1. **Load adaptation:** force sensor readings inform pump/valve commands to change the inflation of buoyancy elements.
-2. **Wave-responsive façade:** ultrasonic distance sensing informs a servo-actuated kinetic louver response to rising water levels / wave conditions.
+The project began with a design question: **How might existing coastal communities adapt to changing water levels and human loads without abandoning their local architectural identity?**
 
-The team reports that both systems operated in the physical prototype. The surviving files establish substantial elements of the control logic and Grasshopper communication workflow; **the exact source-code connection from distance readings to façade actuation has not been fully reconstructed from the archived files**. This repository documents both the demonstrated prototype and the limits of the surviving technical evidence.
+The original competition submission focuses on **Tai O, Hong Kong**, particularly its historic stilt houses (*Pang O*). It explores modular floating infrastructure as a conceptual response to rising sea levels, extreme weather, and the competing goals of heritage preservation and community use. The concept also considers potential uses for fishing activities and shared waterfront spaces.
 
-## New: Python software extension (2026)
+The project is a **student research-and-design prototype**, not a deployed or certified flood-protection system. The potential community applications described in the competition booklet are **proposals**, not field-tested outcomes.
 
-**[Explore the Responsive Systems Lab →](python-extension/README.md)** — a separate offline Python controller and interactive Streamlit dashboard inspired by the 2025 prototype, with [automated tests](python-extension/tests/test_control.py) and [example scenario data](python-extension/samples/scenario.csv). This demonstrates a **new software-learning direction**, not new evidence about the original physical hardware.
+## What we built and demonstrated (2025)
+
+We designed a modular floating-platform concept and built a working tabletop prototype demonstrating **two responsive subsystems**:
+
+| Subsystem | Inputs | Control response | Physical output |
+|---|---|---|---|
+| **Load adaptation** | Force-sensitive sensor readings | Arduino threshold and pump/valve-control logic | Air-pump operation adjusts inflation of buoyancy cushions |
+| **Wave / water-level adaptation** | Ultrasonic distance readings | Arduino–Grasshopper data exchange and parameter-based angle mapping | Servos move kinetic façade / louver elements |
+
+The physical prototype successfully demonstrated both interactions according to the project team and its photographic documentation. **This does not establish the prototype's performance under real coastal conditions.**
+
+### System architecture
+
+![Original system mechanism diagram: force sensor, microcontroller, inflation control, ultrasonic sensor and servo-controlled louver response](media/competition/system-mechanism.jpg)
+
+*Original system-mechanism diagram from the team's competition submission (PDF page 7, printed pp. 12–13). It depicts the conceptual system architecture rather than independently validating every physical connection.*
+
+```mermaid
+flowchart LR
+  F[Force sensor] --> FC[Arduino force-threshold logic]
+  FC --> P[Pump and valve commands]
+  P --> B[Inflatable buoyancy cushions]
+  U[Ultrasonic distance sensor] --> G[Arduino / Grasshopper data flow]
+  G --> A[Rule-based angle mapping]
+  A --> S[Servo-controlled louvers]
+```
+
+### Physical demonstration
+
+![Photos of tabletop prototype illustrating wave detection and load adaptation](media/competition/physical-demonstration.jpg)
+
+*Demonstration photographs from the team's competition submission (PDF page 9, printed pp. 16–17). The images show the prototype, not a commercial-scale installation.*
+
+## Implementation and code archive
+
+The historical project combines **Arduino C++**, **Rhino/Grasshopper**, and embedded **Python 3** scripts. Examples of the work visible in the surviving files include reading force-sensitive analogue values, applying conditional control rules, tracking command states, exchanging data through a serial connection, and mapping parameters to servo-angle commands.
+
+| Location | What to find | Notes |
+|---|---|---|
+| [`arduino/force-control/`](arduino/force-control/) | Force-responsive pneumatic-control sketches, including v2, v4 and VVS variant | Archived, project-specific sketches; not retested against hardware for this upload |
+| [`arduino/experiments/`](arduino/experiments/) | Earlier timed pump-control experiment | Development history |
+| [`grasshopper/0902_Arduino.gh`](grasshopper/0902_Arduino.gh) | Original visual Grasshopper definition | Requires Rhino/Grasshopper to inspect visually |
+| [`grasshopper/extracted-scripts/`](grasshopper/extracted-scripts/) | Six readable Python scripts extracted from Grasshopper components | Archived components; not a standalone executable |
+| [`media/grasshopper/`](media/grasshopper/) | Screenshots of serial port, sensor input, parameter processing, and output blocks | Captured with no live serial connection |
+| [`docs/`](docs/) | Technical analysis, reproducibility notes and attribution | Explains the limits of the preserved code |
+
+The project's original architecture is **rule-based rather than machine-learning-based**. The surviving files do not fully establish the exact final firmware-to-louver connection, even though the team reports successful physical operation. See [technical architecture](docs/SYSTEM_ARCHITECTURE.md), [code notes](docs/CODE_NOTES.md), and [reproducibility limits](docs/REPRODUCIBILITY.md).
+
+## Responsive Systems Lab — new Python learning extension (2026)
+
+After the original architecture project, a **separate, software-only simulator** was developed as a Python learning exercise. It explores explainable control decisions, simulated sensor input, a force deadband, louver-angle mapping, and a small automated test suite. **It does not communicate with the original hardware or recreate measured physical behavior.**
+
+![Screenshot of Responsive Systems Lab Streamlit interface with simulated sensor controls and current pump/louver state](media/software/responsive-systems-lab-ui.jpg)
+
+*Screenshot supplied from the Streamlit-based simulator in November 2026. The displayed readings are illustrative, not measurements from the 2025 physical prototype.*
+
+[Explore the simulator and instructions](python-extension/README.md) · [Read the software-extension notes](docs/PYTHON_EXTENSION.md)
 
 ```bash
 cd python-extension
 python -m simulator.run_demo
 python -m unittest discover -s tests -v
-# Interactive version: pip install -r requirements.txt && streamlit run app.py
+# For the optional interactive UI:
+python -m pip install -r requirements.txt
+streamlit run app.py
 ```
 
-The extension was prepared with **AI coding assistance**; project-owner review, personal modifications, and a local UI run should be completed before making independent implementation claims. See the [learning notes](docs/PYTHON_EXTENSION.md) and [admissions summary draft](docs/ADMISSIONS_SUMMARY.md).
+The 2026 extension was prepared with **AI coding assistance**. Personal code review and further independently understood changes should be completed before describing it as independently authored software.
 
-## System at a glance
+## Contribution, mentorship and attribution
 
-```mermaid
-flowchart LR
-  F[Force sensor] --> FC[Arduino force-threshold logic]
-  FC --> PA[Pump + valve commands]
-  PA --> BO[Inflatable buoyancy pads]
-  U[Ultrasonic distance sensor] --> GH[Arduino / Grasshopper data flow]
-  GH --> MAP[Parameter and angle mapping]
-  MAP --> SV[Servo-actuated louvers]
-```
+- **Yang Yiru — team leader / project contributor:** architectural and system design, Arduino programming, project-specific parameter-control workflows, physical prototyping, and team coordination, as described by the project lead. Exact authorship of individual legacy components is not always recoverable.
+- **Zhou Yiheng — project teammate / co-developer:** credited as a group member on the official competition submission. The repository does not infer a detailed division of work that the provided material does not document.
+- **Professor Kaicong Wu — instructor:** credited on the competition submission; provided course context and technical teaching resources.
+- **Existing framework / AI tools:** Arduino–Grasshopper integration used a professor-provided environment. Some serial-interface Python components in the archived Grasshopper definition are identified as generated with ChatGPT-4o. The Firefly Firmata template and its course-modified derivative are **not redistributed** here.
 
-This is a **system-level diagram**, not a verified record of every final wire, pin and firmware version.
+See [full attribution and publishing notes](docs/ATTRIBUTION.md).
 
-## Technical material in this repository
+## Competition documentation and next steps
 
-| Folder | Contents | Evidence status |
-|---|---|---|
-| [`arduino/force-control/`](arduino/force-control/) | Original Arduino sketches for force-responsive pneumatic behavior, including v2, v4 and an alternate VVS variant | Project-specific logic visible; not hardware-tested for this release |
-| [`arduino/experiments/`](arduino/experiments/) | Earlier timed inflation/deflation experiment | Archived development sketch |
-| [`grasshopper/0902_Arduino.gh`](grasshopper/0902_Arduino.gh) | Original Grasshopper definition | Archived binary definition; requires Rhino/Grasshopper to open |
-| [`grasshopper/extracted-scripts/`](grasshopper/extracted-scripts/) | Six *unchanged* Python scripts extracted from embedded GH components | For code review; these are not a standalone app |
-| [`media/`](media/) | Original project board and screenshots of the Grasshopper canvas | Captured outside a live serial session; panels show disconnected-state messages |
-| [`docs/`](docs/) | Architecture, code notes, provenance and reproduction limitations | Research/portfolio documentation |
-| [`python-extension/`](python-extension/) | New Python simulation, Streamlit interface and automated tests (2026) | Separate AI-assisted educational exercise; not connected to hardware |
+The original entry was submitted to the **11th Hong Kong University Student Innovation and Entrepreneurship Competition**, **Innovation A**, project **EC-042**. The submission includes the Tai O problem statement, modular platform proposal, diagrams, physical demonstration photos, and proposed longer-term uses such as stilt-house retrofits, fishing infrastructure, community spaces, urban farming, and temporary housing. Those expanded uses remained **future concepts** in this project.
 
-## What the code demonstrates
-
-- Reading an analogue force-sensitive resistor value with `analogRead(A0)`.
-- Applying a threshold rule (`fsr > 300`) to choose inflation, idle, or deflation commands.
-- Using functions, conditional logic and state counters to manage actuator commands in Arduino sketches.
-- Using Grasshopper/Python components to **open a serial port, read incoming data, format commands and send values to Arduino**.
-- Mapping sensor-related parameters to two-state (0°/90°) or three-state (0°/45°/90°) outputs in the Grasshopper definition.
-
-These are **rule-based control techniques**, not a machine-learning model. The scripts and hardware setup have not been re-run as part of preparing this archive.
-
-## Evidence and demonstrations
-
-- **Physical prototype:** visible in the [project board](media/project-board.jpg), including force/load and wave-condition demonstrations.
-- **Grasshopper setup:** [port](media/grasshopper/01-port-setup.jpg) · [sensor read](media/grasshopper/02-sensor-reading.jpg) · [processing](media/grasshopper/03-sensor-processing.jpg) · [command output](media/grasshopper/04-actuator-output.jpg).
-- **Technical interpretation:** [system architecture](docs/SYSTEM_ARCHITECTURE.md) and [code review](docs/CODE_NOTES.md).
-
-## My contribution and collaboration
-
-This was a **collaborative** architectural design and prototyping project. The project lead reports contributing to the architectural/system design, Arduino programming, parameter-control workflows, prototype development and team coordination. Specific authorship of individual GH components and inherited starter code should be distinguished from original project logic. The serial-port interface scripts are marked in the Grasshopper definition as generated using **ChatGPT-4o**.
-
-The group used a **professor-provided Arduino/Grasshopper environment and starter templates**. The original Firefly Firmata code is attributed to Andrew Payne and Jason Kelly Johnson (2015) and includes an 'All Rights Reserved' notice. Those original or derivative teaching-framework files are **not distributed in this public-upload package** pending permission. See [provenance and attribution](docs/ATTRIBUTION.md).
-
-## Reproducing or extending the project
-
-**This repository is a historical project archive, not plug-and-play firmware.** Hardware wiring, a compatible Arduino board, Rhino/Grasshopper, the right serial-port settings and the relevant course framework may be required. The `.gh` file includes a machine-specific serial path that must be changed for another computer. See [reproduction and limitations](docs/REPRODUCIBILITY.md).
-
-Potential future hardware extensions include sensor calibration, pressure/water-level feedback and serial-protocol tests. A **software-only simulation with example force deadband logic and automated tests has now been added separately** under [`python-extension/`](python-extension/); it does not validate or reproduce the final hardware implementation.
-
-## Project context and credits
-
-Completed at **The University of Hong Kong** in 2025. The original project was developed with a teammate and received a **Merit Prize** in the university student innovation and entrepreneurship competition. The architecture/prototype images are from the team's project documentation. See [attribution and publication review](docs/ATTRIBUTION.md).
-
-> **Before making this repository public:** confirm any teammates' approval for collaborative materials and review the permissions of any course-provided code. No open-source license has been assigned to this mixed-provenance archive.
+**Project status:** 2025 tabletop prototype completed; no independent field validation, long-term reliability evaluation or safety certification is claimed. The 2026 Python simulator is a separate study exercise. There is no repository-wide open-source license because the archive contains collaborative work and mixed-provenance components.

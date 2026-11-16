@@ -4,6 +4,12 @@ This is a **new, software-only, AI-assisted learning extension** inspired by the
 
 The app is designed to communicate programming and product-thinking skills: translate sensor readings into explainable decisions, handle invalid inputs and boundary conditions, and test behavior without access to the original hardware.
 
+## Interface screenshot
+
+![Responsive Systems Lab Streamlit screenshot](../media/software/responsive-systems-lab-ui.jpg)
+
+*Captured from the software-only simulator; input values are illustrative.*
+
 ## Try without installing extra libraries
 
 Requires **Python 3.10+**. Open a terminal in the `python-extension` folder:

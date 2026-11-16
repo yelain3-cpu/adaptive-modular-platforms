@@ -1,33 +1,38 @@
-# Attribution, authorship and publishing checklist
+# Attribution, authorship and publishing notes
 
-## Project and design
+## Project team and instructor (verified from competition submission)
 
-- **Project:** *Adaptive Modular Platforms for Climate-Resilient Urbanism*, HKU final-year work, 2025.
-- **Project nature:** Collaborative student work. The project lead has described system design, team coordination and programming contributions; do not imply that every component was written or built by one person.
-- **Award:** Merit Prize, Hong Kong University Student Innovation and Entrepreneurship Competition 2025.
-- **Photos/board:** Taken from the team's supplied project portfolio board. Confirm collaborator approval before public posting if ownership is shared.
+- **Project:** *Adaptive Modular Platforms for Climate-Resilient Urbanism* (2025).
+- **11th Hong Kong University Student Innovation and Entrepreneurship Competition:** Innovation A, submission number **EC-042**.
+- **Group members:** **Yang Yiru** and **Zhou Yiheng**.
+- **Instructor:** **Professor Kaicong Wu**.
+- **Recognition:** Merit Prize (as stated in Yang Yiru's CV and supplied project context; the submitted competition booklet itself establishes the entry details, not the final results).
+- **Document source:** Team competition submission, supplied as `42.pdf`; cover / team names on PDF page 1, context on pp. 3–5, system diagram on p. 7, and physical prototype photos on p. 9.
 
-## Framework code not included in the upload-ready repository
+The team lead reports contributions to architectural/system design, project-specific Arduino programming, parameter-control workflows, physical prototyping, and team coordination. The exact division of individual technical tasks between teammates is not fully documented. Avoid asserting exclusive authorship.
 
-Two files were provided for examination but **are deliberately excluded from this public-shareable package**:
+The included diagram and demo-photo excerpts were extracted from the team's submitted project materials. Collaborative publication should follow the contributors' approval.
 
-1. `Firefly_Firmata_Basic.ino` — credited in its header to **Andrew Payne and Jason Kelly Johnson**, copyright 2015, **All Rights Reserved**.
-2. `airpump(1).ino` — its header identifies it as a modified version of that Firefly Firmata code for HKU course ARCH7465, adding support for a distance sensor and temperature/humidity sensor.
+## Framework code NOT distributed
 
-The teaching framework may have contributed the baseline Arduino–Grasshopper sensor and actuator communication features. We have **not established permission to redistribute these two files on a public GitHub repository**. Keep the original reference copies privately and obtain appropriate authorization or an authoritative redistribution license before adding them.
+The following reference/source files were inspected but intentionally **excluded** from this shareable package:
 
-## AI-assisted scripts
+1. `Firefly_Firmata_Basic.ino`: attributed in its header to Andrew Payne and Jason Kelly Johnson (2015), with an “All Rights Reserved” notice.
+2. `airpump(1).ino`: course-modified Firefly code identified as prepared for HKU course ARCH7465, including added sensor support.
 
-The supplied Grasshopper definition contains a note attributing the **Open/Close Port, Uno Read and Uno Write** Python components to ChatGPT-4o generation. They are included unchanged as archived project components. This repository does **not** represent these scripts as independently coded from scratch.
+The preserved Arduino force-control sketches are separate from these teaching-framework files. Do not add either Firefly-derived file to a public repo without verifying redistribution rights. The other source files remain subject to their own authorship and rights.
 
-## Rights and licensing
+## AI-assisted software
 
-No repository-wide open-source license has been applied. The material has mixed authorship, potential third-party dependencies, and student-team work. Confirm rights before selecting an open-source license or allowing public reuse.
+The Grasshopper definition notes that the Python Open/Close Port, Uno Read, and Uno Write components were generated using ChatGPT-4o. The 2026 Responsive Systems Lab Python extension was also prepared with AI assistance. Neither should be represented as independently written from scratch.
 
-## Before clicking “Public”
+## Evidence boundaries
 
-- [ ] Confirm your teammate is comfortable publishing the portfolio images and collaborative Grasshopper definition.
-- [ ] Verify your own work and contribution statements are accurate.
-- [ ] Keep the 2015 Firefly Firmata template and course derivative out of the public repository unless licensed/authorized.
-- [ ] Inspect the image and `.gh` file for anything you do not want shared publicly, such as personal paths, names or embedded files.
-- [ ] Ensure you understand the source files well enough to discuss them in admissions interviews.
+- The original booklet documents **design intentions and photographed tabletop demonstrations**, not deployment in Tai O or quantified climate resilience results.
+- The team reports that both control systems worked in the physical setup, but the surviving archive does not confirm every final firmware/hardware connection.
+- The screenshot of the 2026 simulator illustrates a **software-only exercise** and does not show connected Arduino hardware.
+- The Merit Prize is drawn from the provided CV and project account, not proven solely by the submission booklet.
+
+## Licensing and public sharing
+
+No blanket open-source license has been added to this mixed-provenance archive. Credit does not itself grant third-party redistribution rights. The professor-provided Firefly files are excluded; do not accidentally upload the separate private source backup.
